@@ -17,7 +17,6 @@ def click_first_date(calendar):
 
 def click_last_date(calendar):
     weeks = calendar.find_elements(By.CLASS_NAME, "datepickerSaturday")
-    print('AVER: ', weeks)
     last_day = weeks[-1]
     last_day.click()
 
@@ -56,7 +55,7 @@ def filter_countries():
 
     # Read the Excel file and filter countries based on the 'Condition' column
     df = pd.read_excel('markets_in_scope.xlsx')
-    filtered_countries = df.loc[df['Is it in scope? (5%)'] == True, 'Market']
+    filtered_countries = df.loc[df['Is it in scope? (5%)'] == 'YES', 'Market']
     print('These are the markets', filtered_countries)
     for country_name in filtered_countries:
         try:
